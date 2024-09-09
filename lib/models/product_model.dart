@@ -1,8 +1,9 @@
 import 'package:store_app/models/rating_model.dart';
 
 class ProductModel {
-  final String title, description, price, image, category;
+  final String title, description, image, category;
   final int id;
+  final dynamic price;
   final RatingModel rating;
   ProductModel({
     required this.category,

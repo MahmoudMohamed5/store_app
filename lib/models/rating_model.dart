@@ -1,5 +1,5 @@
 class RatingModel {
-  final double rate, count;
+  final num rate, count;
 
   RatingModel({
     required this.rate,
