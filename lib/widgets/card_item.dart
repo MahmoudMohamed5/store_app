@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/models/product_model.dart';
 
 class CardItem extends StatelessWidget {
   const CardItem({
     super.key,
+    required this.productModel,
   });
-
+  final ProductModel productModel;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -21,29 +23,29 @@ class CardItem extends StatelessWidget {
               ),
             ],
           ),
-          child: const Card(
+          child: Card(
             elevation: 10,
             child: Padding(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    'Shoes',
-                    style: TextStyle(
+                    productModel.title.split(' ').first,
+                    style: const TextStyle(
                       fontSize: 16,
                       color: Colors.grey,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(r'$' '201'),
-                      Icon(
+                      Text(r'$' '${productModel.price}'),
+                      const Icon(
                         Icons.favorite,
                         color: Colors.red,
                       )
@@ -58,7 +60,7 @@ class CardItem extends StatelessWidget {
             right: 32,
             top: -60,
             child: Image.network(
-              'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+              productModel.image,
               width: 100,
               height: 100,
             ))
